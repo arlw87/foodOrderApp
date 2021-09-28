@@ -1,0 +1,13 @@
+.container{
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem;
+    list-style-type: none;
+    padding: 0px;
+}
+
+.divider{
+    background-color: blue;
+    border:blue solid 1px;
+    width: 100%;
+}

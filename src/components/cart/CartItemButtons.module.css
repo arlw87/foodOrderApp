@@ -1,0 +1,22 @@
+.buttonContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.buttonContainer button{
+    margin: 0.2rem;
+    color: blue;
+    background-color: white;
+    border: 1px solid blue;
+    font-size: 1.5rem;
+    min-width: 40px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.buttonContainer button:hover{
+    background-color: blue;
+    color: white;
+    border: 1px white solid;
+}

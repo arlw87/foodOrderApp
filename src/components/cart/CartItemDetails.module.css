@@ -1,0 +1,29 @@
+.itemDetailsContainer div{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.itemDetailsContainer h3{
+    margin: 0 0 0.5rem 0;
+    font-size: 2rem;
+}
+
+.itemDetailsContainer p{
+    margin: 0 1rem 0 0;
+    font-size: 1.5rem;
+    color: blue;
+}
+
+.itemDetailsContainer span{
+    border: solid grey 1px;
+    border-radius: 8px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 5px;
+}
+
+.itemDetailsContainer{
+        
+}

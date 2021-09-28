@@ -14,8 +14,9 @@
 .modalOverlay{
     z-index: 21;
     position: fixed;
-    top: 50%;
-    left: 40%;
+    top: 30%;
+    left:35vw;
+    width:30vw;
     animation: slide-down 300ms ease-out forwards;
 }
 
