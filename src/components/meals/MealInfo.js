@@ -1,12 +1,14 @@
+import Style from './MealInfo.module.css';
+
 const MealInfo = (props) => {
 
     const {mealName, mealDesc, price} = props.mealDetails;
 
     return(
-        <div>
+        <div className={Style.mealInfo}> 
             <h2>{mealName}</h2>
             <p>{mealDesc}</p>
-            <p>{price}</p>
+            <span>£{price}</span>
         </div>
 
     )

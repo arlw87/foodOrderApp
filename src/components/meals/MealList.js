@@ -7,22 +7,28 @@ const MealList = (props) => {
 
     const mealArray = [
         {
-            mealName: 'Pizza',
-            mealDesc: 'Fun food',
-            price: 45.99,
+            mealName: 'Sushi',
+            mealDesc: 'Great Tasting Fish and Vegetables',
+            price: 15.99,
             key: 1
         }, 
         {
-            mealName: 'Pizza',
-            mealDesc: 'Fun food',
-            price: 45.99,
+            mealName: 'Barbecue Ribs',
+            mealDesc: 'Tender Ribs marinated in BBQ sauce',
+            price: 25.99,
             key: 2
         },
         {
             mealName: 'Pizza',
-            mealDesc: 'Fun food',
-            price: 45.99,
+            mealDesc: 'Vegeterian Pizza',
+            price: 12.99,
             key: 3
+        }, 
+        {
+            mealName: 'Salad',
+            mealDesc: 'A great mix of fresh vegetables and dressing',
+            price: 9.99,
+            key: 4
         }
     ]
 
@@ -30,7 +36,10 @@ const MealList = (props) => {
         <ul className={Styles.listContainer}>
             {mealArray.map(el => {
                 return(
-                        <Meal mealDetails={el} key={el.key}></Meal>
+                        <Fragment>
+                            <Meal mealDetails={el} key={el.key}></Meal>
+                            <hr/>
+                        </Fragment>
                 )
             })}
         </ul>    
