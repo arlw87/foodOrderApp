@@ -4,7 +4,7 @@ import { useReducer, useState } from 'react';
 import Cart from './components/cart/Cart';
 
 
-
+//Cart Reducer used in useReducer Hook
 const cartReducer = (state, action) => {
   console.log('Reducer: ', action);
   console.log(state);
@@ -129,7 +129,7 @@ function App() {
     }
 
   }
-
+  
   return (
     <div>
       <Header cart={cart} showCart={viewCart}/>
