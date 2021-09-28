@@ -27,7 +27,18 @@ const cartReducer = (state, action) => {
       }
       //if the meal is not already in the cart then add it to the cart array
       return [...state, action.item];
-
+    case 'CART.SUBTRACT':
+      return state.map(el => {
+        if (el.meal.key === action.item.meal.key){
+          return{
+            meal: el.meal,
+            amount: el.amount + action.item.amount
+          }
+        }
+        return el;
+        });
+    case 'CART.REMOVE':
+      return state.filter(el => el.meal.key !== action.item.meal.key);
     default: 
       console.log('Reached Default');
       break;
@@ -59,11 +70,71 @@ function App() {
 
   const [displayCart, updateDisplayCart] = useState(false);
 
+  //Handles if an item is increased or decreased in the cart
+  const manageCart = (item) => {
+
+    
+    //get the meal Object from the cart using the id
+    const mealObj = cart.reduce((acc, cur) => {
+      if (cur.meal.key === item.key){
+        return cur.meal;
+      }
+      return acc;      
+    },'undefined');
+
+    console.log(item.value);
+
+    if (item.value === 1){
+      const obj = {
+        type: 'CART.ADD',
+        item: {
+          amount: 1,
+          meal: mealObj
+        }
+      }
+      updateCart(obj);
+    } else {
+      console.log('debug Subtract')
+      //get the amount of meals in cart for that item
+      const mealAmount = cart.reduce((acc, cur) => {
+        if (cur.meal.key === item.key){
+          return cur.amount;
+        }
+        return acc;      
+      },'undefined');
+      
+      //remove one meal from the multiple meals
+      if (mealAmount > 1){
+        const subtractMealObj = {
+          type: 'CART.SUBTRACT',
+          item: {
+            amount: -1,
+            meal: mealObj
+          }
+        }
+        updateCart(subtractMealObj);
+      } else {
+        //only one meal of that type left so remove the 
+        //meal from the cart completely
+        const removeMealItemObj = {
+          type: 'CART.REMOVE',
+          item: {
+            amount: 0,
+            meal: mealObj
+          }
+        }
+        updateCart(removeMealItemObj);
+      }
+
+    }
+
+  }
+
   return (
     <div>
       <Header cart={cart} showCart={viewCart}/>
       <Main addToCart={addToCart}/>
-      {displayCart?<Cart cartItems={cart} hideCart = {exitCart}/>:''}
+      {displayCart?<Cart cartItems={cart} hideCart = {exitCart} addToCart={addToCart} manageCart={manageCart}/>:''}
     </div>
   );
 }

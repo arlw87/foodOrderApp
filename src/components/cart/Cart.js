@@ -12,7 +12,8 @@ const Cart = (props) => {
         return{
             mealName: el.meal.mealName,
             price: el.meal.price,
-            amount: el.amount
+            amount: el.amount,
+            key: el.meal.key
         }
     });
 
@@ -20,12 +21,14 @@ const Cart = (props) => {
 
     return(
         <Modal hideModal={props.hideCart}>
-            <ul className={Styles.container}>
-                {cartArray.map((el)=> {
-                    return <CartItem meal={el}/>
-                })}
-            </ul> 
-            <CartSummary></CartSummary>   
+            <div className={Styles.container}>
+                <ul className={Styles.listContainer}>
+                    {cartArray.map((el)=> {
+                        return <CartItem meal={el} manageCart={props.manageCart}/>
+                    })}
+                </ul> 
+                <CartSummary closeCart={props.hideCart} cartItems={cartArray}></CartSummary> 
+            </div>  
         </Modal>
     )
 }

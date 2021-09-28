@@ -1,3 +1,7 @@
+.listContainer{
+    padding: 0;
+}
+
 .container{
     background-color: white;
     z-index: 100;
