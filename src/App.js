@@ -5,6 +5,7 @@ import Cart from './components/cart/Cart';
 
 
 //Cart Reducer used in useReducer Hook
+//test for github
 const cartReducer = (state, action) => {
   console.log('Reducer: ', action);
   console.log(state);
