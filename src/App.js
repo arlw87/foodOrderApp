@@ -1,7 +1,8 @@
 import Header from "./components/layout/Header"
 import Main from "./components/layout/Main";
-import { useReducer } from 'react';
-import Modal from './components/UI/Modal';
+import { useReducer, useState } from 'react';
+import Cart from './components/cart/Cart';
+
 
 
 const cartReducer = (state, action) => {
@@ -48,13 +49,21 @@ function App() {
     updateCart(obj2);
   }
 
-  console.log('Cart: ', cart);
+  const viewCart = () => {
+    updateDisplayCart(true);
+  }
+
+  const exitCart = () => {
+    updateDisplayCart(false);
+  }
+
+  const [displayCart, updateDisplayCart] = useState(false);
 
   return (
     <div>
-      <Header cart={cart}/>
+      <Header cart={cart} showCart={viewCart}/>
       <Main addToCart={addToCart}/>
-      <Modal></Modal>
+      {displayCart?<Cart cartItems={cart} hideCart = {exitCart}/>:''}
     </div>
   );
 }

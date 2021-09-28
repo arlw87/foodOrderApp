@@ -14,10 +14,16 @@ const CartButton = (props) => {
         return acc + cur.amount;
     }, 0)
 
-   console.log(totalMeals);
+   console.log(props);
+
     
+    const clickHandler = (event) => {
+        props.showCart();
+    }
+
+
     return(
-        <button className={Styles.button}>
+        <button className={Styles.button} onClick={clickHandler}>
             <span className={Styles.icon}>
                 <CartIcon/>
             </span>
