@@ -7,7 +7,7 @@ const Main = (props) => {
     return(
         <Fragment>
             <WelcomeBanner/>
-            <MealList/>
+            <MealList addToCart={props.addToCart}/>
         </Fragment>
     )
 }

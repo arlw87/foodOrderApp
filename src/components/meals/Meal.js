@@ -6,7 +6,7 @@ const Meal = (props) => {
     return(
         <li className={Styles.mealContainer}>
             <MealInfo mealDetails={props.mealDetails}></MealInfo>
-            <MealForm></MealForm>
+            <MealForm mealDetails={props.mealDetails} addToCart={props.addToCart}></MealForm>
         </li>
     )
 }

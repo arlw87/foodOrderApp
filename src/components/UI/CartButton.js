@@ -1,9 +1,20 @@
 import Styles from './CartButton.module.css';
 import CartIcon from '../cart/CartIcon';
 
-const CartButton = () => {
+const CartButton = (props) => {
     
-    const numberOfItems = 5;
+    //use the Reduce array method to calculate the number of 
+    //meals in today
+
+
+    console.log('Cart Button');
+    const totalMeals = props.cart.reduce((acc, cur) => {
+        console.log(acc);
+        console.log(cur);
+        return acc + cur.amount;
+    }, 0)
+
+   console.log(totalMeals);
     
     return(
         <button className={Styles.button}>
@@ -12,7 +23,7 @@ const CartButton = () => {
             </span>
             <h4 className={Styles.title}>Your Cart</h4>
             <div className={Styles.badge}>
-                {numberOfItems}
+                {totalMeals}
             </div>
         </button>
     )

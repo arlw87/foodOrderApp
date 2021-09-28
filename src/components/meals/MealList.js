@@ -37,7 +37,7 @@ const MealList = (props) => {
             {mealArray.map(el => {
                 return(
                         <Fragment>
-                            <Meal mealDetails={el} key={el.key}></Meal>
+                            <Meal mealDetails={el} key={el.key} addToCart={props.addToCart}></Meal>
                             <hr/>
                         </Fragment>
                 )
