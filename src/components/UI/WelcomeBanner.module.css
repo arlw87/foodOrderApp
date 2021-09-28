@@ -1,0 +1,17 @@
+.wrapper{
+    display: flex;
+    justify-content: center;
+
+}
+
+.welcomeBox{
+    background-color: rgb(121, 114, 112);
+    color: rgb(255, 255, 255);
+    padding: 0 2rem 2rem 2rem;
+    border-radius: 40px;
+    text-align: center;
+}
+
+.welcomeBox h1{
+    font-size: 2.5rem;
+}

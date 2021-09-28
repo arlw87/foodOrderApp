@@ -1,0 +1,28 @@
+.header{
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(43, 43, 126);
+    padding: 0 4vw;
+    color: #fff;
+    align-items: center;
+    font-size: 1.5rem;
+    min-height: 10vh;
+}
+
+.title{
+    margin: 0;
+}
+
+.imageContainer {
+    width: 100%;
+    height: 25rem;
+    z-index: 0;
+    overflow: hidden;
+  }
+  
+  .imageContainer img {
+    width: 110%;
+    height: 100%;
+    object-fit: cover;
+    transform: rotateZ(-5deg) translateY(-5em) translateX(-1rem);
+  }

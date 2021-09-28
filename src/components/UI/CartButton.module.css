@@ -1,0 +1,29 @@
+.button{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.5rem;
+    background-color: rgb(32, 32, 65);
+    border-radius: 25px;
+    border: none;
+    color: rgb(255, 255, 255);
+    padding: 0 2rem;
+}
+
+.badge{
+    background-color: rgb(43, 43, 126);;
+    margin: 0 0 0 1rem;
+    border-radius: 25px;
+    min-width: 3rem;
+    padding: 0 0.5rem;
+}
+
+.title{
+    margin: 0.5rem;
+}
+
+.icon {
+        width: 1.35rem;
+        height: 1.35rem;
+        margin-right: 0.5rem;
+      }
