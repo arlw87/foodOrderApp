@@ -1,29 +1,45 @@
 import Styles from './CartButton.module.css';
 import CartIcon from '../cart/CartIcon';
+import { useEffect, useState } from 'react';
 
 const CartButton = (props) => {
     
+    const [cartHasChanged, setCartHasChanged] = useState(false);
+
+
     //use the Reduce array method to calculate the number of 
     //meals in today
 
-
-    console.log('Cart Button');
     const totalMeals = props.cart.reduce((acc, cur) => {
         console.log(acc);
         console.log(cur);
         return acc + cur.amount;
     }, 0)
 
-   console.log(props);
+    useEffect(() => {
+        if (totalMeals === 0){
+            return;
+        }
 
+        setCartHasChanged(true);
+        const timer = setTimeout(()=>setCartHasChanged(false),400);
+
+        return ()=> {
+            clearTimeout(timer);
+        }
+
+       }, [totalMeals]);
+
+   let classes = `${Styles.button} ${cartHasChanged? Styles.bump : ''}`;
     
     const clickHandler = (event) => {
         props.showCart();
     }
 
+    console.log('Classes: ', classes);
 
     return(
-        <button className={Styles.button} onClick={clickHandler}>
+        <button className={classes} onClick={clickHandler}>
             <span className={Styles.icon}>
                 <CartIcon/>
             </span>
