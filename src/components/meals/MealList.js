@@ -3,6 +3,8 @@ import Meal from './Meal';
 import MealForm from './MealForm';
 import { Fragment } from 'react/cjs/react.production.min';
 
+//List of Meals to display that the customer can add to the cart
+
 const MealList = (props) => {
 
     const mealArray = [
