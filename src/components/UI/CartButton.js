@@ -8,7 +8,7 @@ const CartButton = (props) => {
 
 
     //use the Reduce array method to calculate the number of 
-    //meals in today
+    //meals in today 
 
     const totalMeals = props.cart.reduce((acc, cur) => {
         console.log(acc);
