@@ -56,6 +56,40 @@ const CheckOut = (props) => {
         isError: hasCityError
     } = useInput(isCityValidFn);
 
+    //is the form as a whole valid
+    const validForm = isNameValid && isPostCodeValid && isStreetValid && isCityValid;
+
+    const cancelHandler = (event) => {
+        event.preventDefault();
+        props.toggleCheckOut(event);
+    }
+
+    const orderHandler = (event) => {
+        event.preventDefault();
+        //check that the form is valid
+        if (!validForm){
+            console.log('Issue with form');
+            return;
+        }
+
+        console.log('form is good');
+
+        //reset the form
+        resetName();
+        resetStreet();
+        resetPostCode();
+        resetCity();
+
+        //exit modal somehow
+        props.closeCart();
+
+        //The Cart will have to be cleared 
+
+        //The Order will have to be posted to the backend
+    }
+
+    console.log(props);
+
     return(
         <form>
             <div className={hasNameError?Styles.errorInput:''}>
@@ -77,6 +111,10 @@ const CheckOut = (props) => {
                 <label htmlFor='city'>City</label>
                 <input type='text' id='city' value={cityValue} onBlur={handleCityBlur} onChange={handleCityInput}></input>
                 {hasCityError?<p>Please enter a valid City (Upper case first letter)</p>:''}
+            </div>
+            <div className={Styles.containerButtons}>
+                <button onClick={cancelHandler}>Cancel</button>
+                <button disabled={!validForm} onClick={orderHandler}>Confirm</button>
             </div>
         </form>
     )

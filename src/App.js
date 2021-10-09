@@ -66,6 +66,7 @@ function App() {
   }
 
   const exitCart = () => {
+    console.log('exit cart');
     updateDisplayCart(false);
   }
 
@@ -130,6 +131,8 @@ function App() {
     }
 
   }
+
+  console.log('display cart ', displayCart);
   
   return (
     <div>

@@ -9,20 +9,18 @@ const CartSummary = (props) => {
     console.log('Props: ', props);
 
     const closeHandler = (event) => {
+        console.log('close cart from cart Summary');
         props.closeCart();
     }
 
     const total = props.cartItems.reduce((arr, cur) => arr + (cur.amount * cur.price),0);
 
-    const checkOutToggle = () => {
+    const checkOutToggle = (event) => {
+        event.preventDefault();
         setShowOrderForm(prev => !prev);
     }
 
-    //if the checkout form is show cancelButton closes the checkout form
-    //if not then the cancel button closes the cart
-    const cancelButton = showOrderForm? <button onClick={checkOutToggle}>Cancel</button>:<button onClick={closeHandler}>Close</button>;
-
-    const confirmButton = showOrderForm? <button>Confirm</button>: total>0?<button onClick={checkOutToggle}>Order</button>:'';
+    console.log('ShowOrderForm: ', showOrderForm);
 
     return(
         <div className={Styles.container}>
@@ -31,11 +29,12 @@ const CartSummary = (props) => {
                 <h2 > £{total.toFixed(2)}</h2>
             </div>
             <div className={Styles.infoContainer}>
-                {showOrderForm? <CheckOut/> : ''} 
+                {showOrderForm? <CheckOut toggleCheckOut={checkOutToggle} closeCart={props.closeCart}/> : ''}
+                {showOrderForm?'':
                 <div className={Styles.containerButtons}>
-                    {cancelButton}
-                    {confirmButton}
-                </div>
+                    <button onClick={closeHandler}>Close</button>
+                    {props.cartItems.length === 0? '':<button onClick={checkOutToggle}>Order</button>}
+                </div>}
             </div>
         </div>
 

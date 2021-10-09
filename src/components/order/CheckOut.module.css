@@ -18,6 +18,9 @@ form div label {
 
 form input{
     font-size: 1.5rem;
+    border-radius: 6px;
+    border: 1px solid grey;
+    padding: 0 4px 0 4px;
 }
 
 .errorInput input{
@@ -28,5 +31,32 @@ form input{
 .errorInput p{
     color:rgb(232, 134, 134);
     margin: 0;
+}
+
+.containerButtons{
+    display: flex;
+    flex-direction: row;
+    margin-left: auto;
+}
+
+.containerButtons button{
+    font-size: 1.5rem;
+    background-color: white;
+    color: blue;
+    border: 1px blue solid;
+    border-radius: 10px;
+    margin: 0 0 0 5px;
+}
+
+.containerButtons button:hover{
+    background-color: blue;
+    color: white;
+    border: 1px blue solid;
+}
+
+.containerButtons button:disabled{
+    background-color: white;
+    color: grey;
+    border: 1px grey solid;
 }
 
