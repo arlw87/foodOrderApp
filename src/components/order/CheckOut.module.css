@@ -19,3 +19,14 @@ form div label {
 form input{
     font-size: 1.5rem;
 }
+
+.errorInput input{
+    border: red 1px solid;
+    background-color: rgb(232, 134, 134);
+}
+
+.errorInput p{
+    color:rgb(232, 134, 134);
+    margin: 0;
+}
+

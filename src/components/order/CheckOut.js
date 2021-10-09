@@ -1,11 +1,27 @@
 import Styles from '../order/CheckOut.module.css';
+import useInput from '../hooks/useInput';
+
+const isNameValidate = (name) => {
+    return name.trim().length > 0;
+}
 
 const CheckOut = (props) => {
+
+    const {
+        value: nameValue,
+        handleInput: handleNameInput,
+        handleTouched: handleNameBlur,
+        reset: restName,
+        isValid: isNameValid,
+        isError: hasNameError
+    } = useInput(isNameValidate);
+
     return(
         <form>
-            <div>
+            <div className={hasNameError?Styles.errorInput:''}>
                 <label htmlFor='name'>Name</label>
-                <input type='text' id='name'></input>
+                <input type='text' id='name' value ={nameValue} onChange={handleNameInput} onBlur={handleNameBlur}></input>
+                {hasNameError?<p>Please enter name</p>:''}
             </div>
             <div>
                 <label htmlFor='street'>Street</label>
