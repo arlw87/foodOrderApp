@@ -1,10 +1,17 @@
 .container{
     display: flex;
     justify-content: space-between;
+    flex-direction: column;
+}
+
+.totalContainer{
+    display: flex;
+    justify-content: space-between;
 }
 
 .containerButtons{
     display: flex;
+    margin-left: auto;
 }
 
 .containerButtons button{
@@ -25,5 +32,4 @@
 .infoContainer{
     display: flex;
     flex-direction: column;
-    text-align: right;
 }

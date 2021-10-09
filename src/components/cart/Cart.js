@@ -27,7 +27,7 @@ const Cart = (props) => {
                         return <CartItem meal={el} manageCart={props.manageCart}/>
                     })}
                 </ul> 
-                <CartSummary closeCart={props.hideCart} cartItems={cartArray}></CartSummary> 
+                <CartSummary closeCart={props.hideCart} cartItems={cartArray}></CartSummary>
             </div>  
         </Modal>
     )

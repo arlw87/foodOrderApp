@@ -8,6 +8,11 @@ const useFetch = () => {
     //in order for this function to be able to post as well as get what do i need?
 
      
+    //useCallback means the function will have the same memory reference 
+    //unless its dependencies change. 
+    //its dependencies are set to only run on mount so the function will 
+    //not change reference after that
+
     const sendRequest = useCallback(async (requestConfig, applyData) => {
         setError('');
         setIsLoading(true); 
