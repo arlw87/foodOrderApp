@@ -34,7 +34,7 @@ const Cart = (props) => {
         }
         
         const requestConfig = {
-            url: 'https://fodorderapp-7e900-default-rtdb.europe-west1.firebasedatabase.app/orders.json',
+            url: 'https://foodorderapp-7e900-default-rtdb.europe-west1.firebasedatabase.app/orders.json',
             method: 'POST',
             headers: {
                 'Accept':'application/json',
