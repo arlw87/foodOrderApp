@@ -20,8 +20,6 @@ const CartSummary = (props) => {
         setShowOrderForm(prev => !prev);
     }
 
-    console.log('ShowOrderForm: ', showOrderForm);
-
     return(
         <div className={Styles.container}>
             <div className={Styles.totalContainer}>
@@ -29,7 +27,7 @@ const CartSummary = (props) => {
                 <h2 > £{total.toFixed(2)}</h2>
             </div>
             <div className={Styles.infoContainer}>
-                {showOrderForm? <CheckOut toggleCheckOut={checkOutToggle} closeCart={props.closeCart}/> : ''}
+                {showOrderForm? <CheckOut toggleCheckOut={checkOutToggle} closeCart={props.closeCart} sendOrder={props.sendOrder}/> : ''}
                 {showOrderForm?'':
                 <div className={Styles.containerButtons}>
                     <button onClick={closeHandler}>Close</button>

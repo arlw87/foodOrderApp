@@ -20,7 +20,7 @@ const MealList = (props) => {
         url: firebaseUrl
     }
 
-    const [isLoading, error, sendRequest] = useFetch(requestConfig);
+    const [isLoading, error, isSuccessful, sendRequest] = useFetch(requestConfig);
 
 
     //only run this code if the sendRequest function changes

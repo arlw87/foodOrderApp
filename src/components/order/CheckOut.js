@@ -74,14 +74,23 @@ const CheckOut = (props) => {
 
         console.log('form is good');
 
+        //here i want to send the customer info to the cart which will add the 
+        //meals and then send it to firebase
+        const customerInfo = {
+            name: nameValue,
+            street: streetValue,
+            city: cityValue,
+            postcode: postCodeValue
+        }
+
+        console.log('Customer Info: ', customerInfo);
+        props.sendOrder(customerInfo);
+
         //reset the form
         resetName();
         resetStreet();
         resetPostCode();
         resetCity();
-
-        //exit modal somehow
-        props.closeCart();
 
         //The Cart will have to be cleared 
 

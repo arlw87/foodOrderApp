@@ -40,6 +40,8 @@ const cartReducer = (state, action) => {
         });
     case 'CART.REMOVE':
       return state.filter(el => el.meal.key !== action.item.meal.key);
+    case 'CART.CLEAR':
+      return [];
     default: 
       console.log('Reached Default');
       break;
@@ -70,12 +72,19 @@ function App() {
     updateDisplayCart(false);
   }
 
+  const clearCart = () => {
+    console.log('Claering cart ....');
+    updateCart({
+      type: 'CART.CLEAR',
+      item: {}
+    })
+  }
+
   const [displayCart, updateDisplayCart] = useState(false);
 
   //Handles if an item is increased or decreased in the cart
   const manageCart = (item) => {
 
-    
     //get the meal Object from the cart using the id
     const mealObj = cart.reduce((acc, cur) => {
       if (cur.meal.key === item.key){
@@ -127,9 +136,7 @@ function App() {
         }
         updateCart(removeMealItemObj);
       }
-
     }
-
   }
 
   console.log('display cart ', displayCart);
@@ -138,7 +145,7 @@ function App() {
     <div>
       <Header cart={cart} showCart={viewCart}/>
       <Main addToCart={addToCart}/>
-      {displayCart?<Cart cartItems={cart} hideCart = {exitCart} addToCart={addToCart} manageCart={manageCart}/>:''}
+      {displayCart?<Cart cartItems={cart} hideCart = {exitCart} addToCart={addToCart} manageCart={manageCart} clearCart={clearCart} showCart={viewCart}/>:''}
     </div>
   );
 }
